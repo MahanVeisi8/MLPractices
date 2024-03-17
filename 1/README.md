@@ -5,6 +5,16 @@ In the following practice, we use two important algorithms of machine learning:
 - Desicion Trees
 - K-Nearest Neighbors
 
+# Practice Number 1 - README
+
+## Introduction
+In this practice, we explore two fundamental machine learning algorithms: Decision Trees and K-Nearest Neighbors (KNN). We implement these algorithms, evaluate their performance, and explore techniques for hyperparameter tuning to improve model accuracy.
+
+## Table of Contents
+- [Decision Trees Implementation](#section-a-implementation-of-decision-trees)
+- [Model Evaluation and Hyperparameter Tuning](#section-b-model-evaluation-and-hyperparameter-tuning)
+- [Random Forest Implementation and Evaluation](#section-c-random-forest-implementation-and-evaluation)
+- [Gradient Boosting Implementation and Evaluation](#section-d-gradient-boosting-implementation-and-evaluation)
 
 
 # Decision Trees and Random Forest Classifier
