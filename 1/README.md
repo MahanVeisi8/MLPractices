@@ -75,7 +75,7 @@ We used the DecisionTreeClassifier from scikit-learn to create and train the mod
 - ***Hyperparameter Tuning:***
  To find the optimal hyperparameters, we performed a grid search over a range of values for max_depth and min_samples_leaf, using a validation set. We visualized the learning curves to understand the model's performance as the training set size increases.
 
-![Alt Text](images/max depth)
+![Alt Text](images/max_depth.png)
 
 
 ### Section C: Random Forest Implementation and Evaluation
