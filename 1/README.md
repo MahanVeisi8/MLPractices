@@ -34,6 +34,37 @@ In this section, we implement a complete Decision Tree classifier from scratch u
 - DecisionTree Class: Represents the Decision Tree model with methods for fitting and predicting.
 - Helper Functions: Includes functions for calculating entropy, information gain, finding the best split, and building the decision tree recursively.
 
+```python
+class node:
+  def __init__(self ,parent, left, right , values , column, threshhold):
+    self.parent:node = parent
+    self.left:node  = left
+    self.right:node = right
+    self.values:np.ndarray = values
+    self.column:int = column
+    self.threshhold:float = threshhold
+
+  def is_leaf(self):
+    if self.values is None:
+      return False
+    return True
+```
+
+```python
+class DecisionTree:
+    # Multiclass Decision Tree classifier
+
+    def __init__(self, min_samples_split=2, max_depth=5, n_features=None ):
+        """
+        Initialize the Decision Tree model.
+        """
+        self.n_features = n_features
+        self.max_depth=max_depth
+        self.min_samples_split=min_samples_split
+        self.tree = node(None, None, None, None, None, None) # self.root=None
+        self.number_of_classes = -1
+        self.classes = None
+```
 ### Section B: Model Evaluation and Hyperparameter Tuning
 
 - ***Model Training and Evaluation:*** We trained several Decision Tree classifiers using different hyperparameters and evaluated their performance on a given dataset. The hyperparameters explored include:
