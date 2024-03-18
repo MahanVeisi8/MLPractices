@@ -19,7 +19,19 @@ We implement these algorithms, evaluate their performance, and explore technique
 - [Model Evaluation and Hyperparameter Tuning](#section-b-model-evaluation-and-hyperparameter-tuning)
 - [Random Forest Implementation and Evaluation](#section-c-random-forest-implementation-and-evaluation)
 - [Gradient Boosting Implementation and Evaluation](#section-d-gradient-boosting-implementation-and-evaluation)
-- - [Contribution Guidelines](#contribution-guidelines)
+***K-Nearest Neighbors (KNN)***
+- [Data Preprocessing](#data-preprocessing)
+  - [Handling Categorical Variables](#handling-categorical-variables)
+  - [Binary Encoding and Numerical Standardization](#binary-encoding-and-numerical-standardization)
+  - [Splitting the Dataset](#splitting-the-dataset)
+- [KNN Model Implementation](#knn-model-implementation)
+  - [Euclidean Distance Calculation](#euclidean-distance-calculation)
+  - [Model Fitting and Prediction](#model-fitting-and-prediction)
+- [Hyperparameter Tuning](#hyperparameter-tuning)
+- [ROC Curve and Model Evaluation](#roc-curve-and-model-evaluation)
+  - [Probability Prediction](#probability-prediction)
+  - [ROC Curve Generation](#roc-curve-generation)
+- [Conclusion](#conclusion)
 
 
 # Decision Trees and Random Forest Classifier
@@ -96,5 +108,33 @@ We implemented a Gradient Boosting classifier using scikit-learn's GradientBoost
 ![Alt Text](images/GradBoost_max_depth.png)
 ![Alt Text](images/grid_search.png)
 
-## Contribution Guidelines
-We welcome contributions from the community! If you encounter any bugs or have suggestions for improvements, please open an issue on GitHub. If you'd like to contribute code, feel free to fork the repository and submit a pull request with your changes.
+
+## Data Preprocessing
+### Handling Categorical Variables
+We transform categorical data into one-hot encoding using the `pd.get_dummies` function.
+
+### Binary Encoding and Numerical Standardization
+Binary encoding is applied to "Yes/No" columns, and numerical standardization is performed on the age column using `LabelEncoder` and `StandardScaler`.
+
+### Splitting the Dataset
+The dataset is split into training, validation, and test sets using `train_test_split` from scikit-learn.
+
+## KNN Model Implementation
+### Euclidean Distance Calculation
+A function `euclidean_dist` is defined to calculate the Euclidean distance between two data points.
+
+### Model Fitting and Prediction
+The `KNN` class is implemented with methods for fitting and predicting. The `fit` method initializes the model with training data, while the `predict` method predicts the class labels for new data points based on the K nearest neighbors.
+
+## Hyperparameter Tuning
+The hyperparameter K is tuned by testing values from 1 to 20 and selecting the one with the highest accuracy on the validation set.
+
+## ROC Curve and Model Evaluation
+### Probability Prediction
+A modified version of the `predict` method called `single_predict_proba` is implemented to generate probabilities for ROC curve plotting.
+
+### ROC Curve Generation
+The ROC curve and the area under the curve (AUC) are computed for each K value using `roc_curve` and `auc` functions from scikit-learn.
+
+## Conclusion
+The KNN model with K=1 demonstrates the highest AUC on the validation set, indicating its superior performance in this classification task. However, the choice of K may vary depending on the specific requirements and characteristics of the dataset.
