@@ -120,7 +120,18 @@ Binary encoding is applied to "Yes/No" columns, and numerical standardization is
 
 ### Splitting the Dataset
 The dataset is split into training, validation, and test sets using `train_test_split` from scikit-learn.
-
+```python
+X_train, X_rest, y_train, y_rest = train_test_split(X, y, test_size=0.4, random_state=42)
+X_val, X_test, y_val, y_test = train_test_split(X_rest, y_rest, test_size=0.5, random_state=42)
+```
+```
+X_train.shape: (209, 125)
+X_val.shape: (70, 125)
+X_test.shape:  (70, 125)
+y_train.shape: (209,)
+y_test.shape:  (70,)
+y_val.shape:  (70,)
+```
 ## KNN Model Implementation
 ### Euclidean Distance Calculation
 A function `euclidean_dist` is defined to calculate the Euclidean distance between two data points.
