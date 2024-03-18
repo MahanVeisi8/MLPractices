@@ -304,17 +304,26 @@ class LinearRegression:
         plt.show()
 
 ```
+![Alt Text](images/error_linear.png)
 
+![Alt Text](images/q2first_img.png)
 
 ### Polynomial Regression
 
 - Polynomial features are added to capture non-linear relationships, improving model performance.
+```python
+    def add_polynomial_features(self, X):
+        return self.poly_features.fit_transform(X)
+```
 
 ### Results and Analysis
 
 - The linear regression model provides decent accuracy in predicting insurance costs.
 - Polynomial regression outperforms the linear model, even with fewer training epochs.
+- ![Alt Text](images/error_poly.png)
+
 - Model predictions are visualized against actual insurance costs, demonstrating their effectiveness.
+![Alt Text](images/q2sec_img.png)
 
 ## Conclusion
 
