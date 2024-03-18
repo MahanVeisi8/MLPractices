@@ -93,7 +93,7 @@ train_sizes, train_scores, val_scores = learning_curve(model, X_data, Y_data, cv
 We implemented a Gradient Boosting classifier using scikit-learn's GradientBoostingClassifier. We tuned hyperparameters such as max_depth and learning_rate using GridSearchCV to find the best combination for our model. We evaluated the final model's performance on a test set and visualized the results using a confusion matrix.
 
 ![Alt Text](images/learning_rate.png)
-![Alt Text](images/GradBoos max_depth.png)
+![Alt Text](images/GradBoost_max_depth.png)
 ![Alt Text](images/grid_search.png)
 
 ## Contribution Guidelines
