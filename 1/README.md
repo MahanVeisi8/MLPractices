@@ -77,9 +77,17 @@ We used the DecisionTreeClassifier from scikit-learn to create and train the mod
 
 ![Alt Text](images/max_depth.png)
 
-
+![Alt Text](images/min_leaf.png)
 ### Section C: Random Forest Implementation and Evaluation
 In this section, we implemented a Random Forest classifier using scikit-learn's RandomForestClassifier. We trained the Random Forest with 100 trees and evaluated its performance on a validation set.
+We used different sets of training set sizes using `learning_curve` 
+
+```python
+train_sizes, train_scores, val_scores = learning_curve(model, X_data, Y_data, cv=5  , scoring='accuracy', train_sizes=[0.25, 0.5, 0.75, 1])
+```
+
+![Alt Text](images/training_examples.png)
+
 
 ### Section D: Gradient Boosting Implementation and Evaluation
 We implemented a Gradient Boosting classifier using scikit-learn's GradientBoostingClassifier. We tuned hyperparameters such as max_depth and learning_rate using GridSearchCV to find the best combination for our model. We evaluated the final model's performance on a test set and visualized the results using a confusion matrix.
