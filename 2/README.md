@@ -1,4 +1,4 @@
-# README - Practice Number 2: Stroke Prediction and Insurance Cost Prediction
+# README - Practice Number 2: Stroke Prediction and Insurance Cost Prediction using SVM and linear regression
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/19gz7e82r64mSo6nlEzNGXp4zhjXDt45W?usp=sharing)
 [![Python Versions](https://img.shields.io/badge/Python-3.6%20%7C%203.7%20%7C%203.8-blue)](https://www.python.org/downloads/)
