@@ -135,10 +135,37 @@ y_val.shape:  (70,)
 ## KNN Model Implementation
 ### Euclidean Distance Calculation
 A function `euclidean_dist` is defined to calculate the Euclidean distance between two data points.
-
+```python
+def euclidean_dist(x1, x2):
+    return np.sqrt(np.sum((x1 - x2) ** 2))
+```
 ### Model Fitting and Prediction
 The `KNN` class is implemented with methods for fitting and predicting. The `fit` method initializes the model with training data, while the `predict` method predicts the class labels for new data points based on the K nearest neighbors.
+```python
+class KNN:
+    def __init__(self, k=3):
+        self.k = k
+        self.X_train = None
+        self.y_train = None
 
+    def fit(self, X_train, y_train):
+        self.X_train = X_train
+        self.y_train = y_train
+
+    def predict(self, X):
+        predictions = [self.single_predict(x) for x in X]
+        return np.array(predictions)
+
+    def single_predict(self, x):
+        distances = [self.euclidean_dist(x, x_train) for x_train in self.X_train]
+        k_near_neighbors_indices = np.argsort(distances)[:self.k]
+        k_near_neighbor_labels = [self.y_train[i] for i in k_near_neighbors_indices]
+        vote = np.bincount(k_near_neighbor_labels).argmax()
+        return vote
+
+    def euclidean_dist(self, x1, x2):
+        return np.sqrt(np.sum((x1 - x2) ** 2))
+```
 ## Hyperparameter Tuning
 The hyperparameter K is tuned by testing values from 1 to 20 and selecting the one with the highest accuracy on the validation set.
 
