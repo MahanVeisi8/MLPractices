@@ -2,6 +2,9 @@
 
 [![Build Status](https://travis-ci.com/username/repository.svg?branch=main)](https://travis-ci.com/username/repository)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python Versions](https://img.shields.io/badge/Python-3.6%20%7C%203.7%20%7C%203.8-blue)](https://www.python.org/downloads/)
+[![Dependencies Status](https://img.shields.io/badge/Dependencies-up%20to%20date-brightgreen)](https://github.com/username/repository/blob/main/requirements.txt)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1uR806lqfcw2c1COt5zGLLJ2o6E6umLXy?usp=sharing)
 
 
 
