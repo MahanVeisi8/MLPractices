@@ -1,6 +1,6 @@
 # README - Practice Number 2: Stroke Prediction and Insurance Cost Prediction
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/your_drive_link_here)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/19gz7e82r64mSo6nlEzNGXp4zhjXDt45W?usp=sharing)
 [![Python Versions](https://img.shields.io/badge/Python-3.6%20%7C%203.7%20%7C%203.8-blue)](https://www.python.org/downloads/)
 [![Dependencies Status](https://img.shields.io/badge/Dependencies-up%20to%20date-brightgreen)](https://github.com/your_username/repository/blob/main/requirements.txt)
 
@@ -50,6 +50,22 @@ We delve into preprocessing steps, model building, and evaluation techniques to 
 - Missing values in numerical features are imputed using the mean.
 - Categorical features are imputed using the most frequent value.
 
+```python
+missing_values_per_feature = data.isnull().sum()
+
+if missing_values_per_feature.any():
+    print('Features with missing values:')
+    print(missing_values_per_feature[missing_values_per_feature > 0])
+else:
+    print('No missing values in any feature.')
+```
+```
+Features with missing values:
+bmi                1462
+smoking_status    13292
+dtype: int64
+```
+
 ### Encoding Categorical Variables
 
 - Categorical variables are one-hot encoded for model training.
@@ -68,10 +84,118 @@ We delve into preprocessing steps, model building, and evaluation techniques to 
 ### Results and Analysis
 
 - Despite preprocessing efforts, the initial SVC model performs poorly.
+```
+Accuracy: 0.7302995391705069
+Confusion Matrix:
+ [[6211 2312]
+ [  29  128]]
+Classification Report:
+               precision    recall  f1-score   support
+
+           0       1.00      0.73      0.84      8523
+           1       0.05      0.82      0.10       157
+
+    accuracy                           0.73      8680
+   macro avg       0.52      0.77      0.47      8680
+weighted avg       0.98      0.73      0.83      8680
+```
+
+if you look at the report, our f1-score for ones is only 0.1 and it is really bad for detecting strokes!
 - Further investigation reveals issues with data quality and class imbalance.
-- A new dataset is created by undersampling the majority class, leading to improved model performance.
+```
+majority_zero.shape: (42617, 12)
+minority_one.shape: (783, 12)
+```
+
+- A new balanced dataset is created by undersampling the majority class, leading to improved model performance.
+```
+Accuracy: 0.7680851063829788
+Confusion Matrix:
+ [[227  86]
+ [ 23 134]]
+Classification Report:
+               precision    recall  f1-score   support
+
+           0       0.91      0.73      0.81       313
+           1       0.61      0.85      0.71       157
+
+    accuracy                           0.77       470
+   macro avg       0.76      0.79      0.76       470
+weighted avg       0.81      0.77      0.77       470
+```
+Wow! 🙂
+
+Much better. Now we have 0.85 of recall for ones.
+
 - Custom threshold adjustment techniques are applied to enhance model performance further.
 
+```python
+model_poly = SVC(kernel='linear', class_weight='balanced', probability=True, random_state=42)
+model_poly.fit(X_train, y_train)
+y_pred_poly_proba = model_poly.predict_proba(X_test)[:, 1]
+
+custom_threshold = 0.3
+y_pred_poly_thresholded = (y_pred_poly_proba > custom_threshold).astype(int)
+
+classification_rep_poly_thresholded = classification_report(y_test, y_pred_poly_thresholded)
+print('Classification Report (3rd-degree Poly SVC with Threshold Adjustment):\n', classification_rep_poly_thresholded)
+```
+
+but which threshold is the best one? let's find it using our new function custom_scorer!
+
+As we are detecting stroke, it is very important not to miss the ones, so I have set 90% of our attention to F1 score of ones in my custom function.
+
+
+```python
+def custom_scorer(y_true, y_pred):
+    f1_ones = f1_score(y_true, y_pred, pos_label=1)
+    f1_zeros = f1_score(y_true, y_pred, pos_label=0)
+    recall_ones = recall_score(y_true, y_pred, pos_label=1)
+    recall_zeros = recall_score(y_true, y_pred, pos_label=0)
+
+    return 0.9 * f1_ones + 0.1 * f1_zeros, 0.9 * recall_ones + 0.1 * recall_zeros
+
+model_poly = SVC(kernel='linear', class_weight='balanced', probability=True, random_state=42)
+model_poly.fit(X_train, y_train)
+
+custom_thresholds = [0.05, 0.1, 0.15, 0.20, 0.25, 0.30, 0.35, 0.4]
+best_threshold = custom_thresholds[0]
+best_score_f1, best_score_recall = 0, 0
+
+history_scores_f1 = []
+history_scores_recall = []
+
+for threshold in custom_thresholds:
+    y_pred_poly_proba = model_poly.predict_proba(X_test)[:, 1]
+    pred = (y_pred_poly_proba > threshold).astype(int)
+    score_f1, score_recall = custom_scorer(y_test, pred)
+    history_scores_f1.append(score_f1)
+    history_scores_recall.append(score_recall)
+
+    if score_f1 > best_score_f1:
+        best_threshold = threshold
+        best_score_f1 = score_f1
+        best_score_recall = score_recall
+        best_pred = pred
+
+```
+
+![Alt Text](images/q1score.png)
+
+```
+Best F1 Score: 0.7147368421052631
+Best Recall Score: 0.839718361449706
+Best Threshold: 0.3
+Classification Report for Best Threshold:
+              precision    recall  f1-score   support
+
+           0       0.91      0.72      0.80       313
+           1       0.60      0.85      0.71       157
+
+    accuracy                           0.76       470
+   macro avg       0.75      0.78      0.75       470
+weighted avg       0.80      0.76      0.77       470
+``` 
 # Insurance Cost Prediction
 
 ## Data Preprocessing
