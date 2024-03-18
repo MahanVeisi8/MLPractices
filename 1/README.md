@@ -1,4 +1,4 @@
-# Practice Number 1 - README
+# README - Practice Number 1: Decision Trees and KNN
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1uR806lqfcw2c1COt5zGLLJ2o6E6umLXy?usp=sharing)
 [![Python Versions](https://img.shields.io/badge/Python-3.6%20%7C%203.7%20%7C%203.8-blue)](https://www.python.org/downloads/)
