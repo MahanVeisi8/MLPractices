@@ -171,12 +171,54 @@ class KNN:
 ## Hyperparameter Tuning
 The hyperparameter K is tuned by testing values from 1 to 20 and selecting the one with the highest accuracy on the validation set.
 
+![Alt Text](images/KNN_k_val.png)
+
 ## ROC Curve and Model Evaluation
 ### Probability Prediction
 A modified version of the `predict` method called `single_predict_proba` is implemented to generate probabilities for ROC curve plotting.
 
+```python
+class KNN:
+    def __init__(self, k=3):
+        self.k = k
+        self.X_train = None
+        self.y_train = None
+
+    def fit(self, X_train, y_train):
+        self.X_train = X_train
+        self.y_train = y_train
+
+    def predict(self, X):
+        predictions = [self.single_predict(x) for x in X]
+        return np.array(predictions)
+
+    def single_predict(self, x):
+        distances = [self.euclidean_dist(x, x_train) for x_train in self.X_train]
+        k_near_neighbors_indices = np.argsort(distances)[:self.k]
+        k_near_neighbor_labels = [self.y_train[i] for i in k_near_neighbors_indices]
+        vote = np.bincount(k_near_neighbor_labels).argmax()
+        return vote
+
+    def euclidean_dist(self, x1, x2):
+        return np.sqrt(np.sum((x1 - x2) ** 2))
+
+    def single_predict_proba(self, x):
+      distances = [self.euclidean_dist(x, x_train) for x_train in self.X_train]
+      k_near_neighbors_indices = np.argsort(distances)[:self.k]
+      k_near_neighbor_labels = [self.y_train[i] for i in k_near_neighbors_indices]
+      return np.mean(k_near_neighbor_labels)
+```
 ### ROC Curve Generation
 The ROC curve and the area under the curve (AUC) are computed for each K value using `roc_curve` and `auc` functions from scikit-learn.
 
+```python
+from sklearn.metrics import roc_curve, auc
+```
+
+![Alt Text](images/knn_ROC.png)
+
+
 ## Conclusion
+
+![Alt Text](images/knn_ROC2.png)
 The KNN model with K=1 demonstrates the highest AUC on the validation set, indicating its superior performance in this classification task. However, the choice of K may vary depending on the specific requirements and characteristics of the dataset.
