@@ -216,6 +216,20 @@ weighted avg       0.80      0.76      0.77       470
 
 - The insurance dataset is loaded and explored to understand its structure.
 
+```python
+import pandas as pd
+csv = 'insurance.csv'
+data = pd.read_csv(csv)
+print(data.head())
+```
+```
+   age     sex     bmi  children smoker     region      charges
+0   19  female  27.900         0    yes  southwest  16884.92400
+1   18    male  33.770         1     no  southeast   1725.55230
+2   28    male  33.000         3     no  southeast   4449.46200
+3   33    male  22.705         0     no  northwest  21984.47061
+4   32    male  28.880         0     no  northwest   3866.85520
+```
 ### Handling Missing Values
 
 - Missing values are handled, and categorical variables are one-hot encoded.
@@ -233,6 +247,64 @@ weighted avg       0.80      0.76      0.77       470
 ### Linear Regression
 
 - A simple linear regression model is built to predict insurance costs.
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+class LinearRegression:
+    def __init__(self, learning_rate=0.01, epochs=1000, early_stopping_epochs=50):
+        self.learning_rate = learning_rate
+        self.epochs = epochs
+        self.early_stopping_epochs = early_stopping_epochs
+        self.coefficients = None
+        self.loss_history = []
+
+    def mean_squared_error(self, y_true, y_pred):
+        return np.mean((y_true - y_pred)**2)
+
+    def fit(self, X, y):
+        X_with_bias = np.c_[np.ones(X.shape[0]), X]
+        self.coefficients = np.zeros(X_with_bias.shape[1])
+
+        prev_loss = float('inf')
+        consecutive_epochs_no_improvement = 0
+
+        for epoch in range(self.epochs):
+            predictions = np.dot(X_with_bias, self.coefficients)
+            errors = predictions - y
+            gradients = 2 * np.dot(errors, X_with_bias) / X_with_bias.shape[0]
+            self.coefficients -= self.learning_rate * gradients
+            current_loss = self.mean_squared_error(y, predictions)
+            self.loss_history.append(current_loss)
+
+            if epoch % 100 == 0:
+                print(f'Epoch {epoch}, Loss: {current_loss}')
+
+            # early stopping
+            if current_loss >= prev_loss:
+                consecutive_epochs_no_improvement += 1
+                if consecutive_epochs_no_improvement >= self.early_stopping_epochs:
+                    print(f"Stopping early at epoch {epoch} due to lack of improvement.")
+                    break
+            else:
+                consecutive_epochs_no_improvement = 0
+
+            prev_loss = current_loss
+
+    def predict(self, X):
+        X_with_bias = np.c_[np.ones(X.shape[0]), X]
+        predictions = np.dot(X_with_bias, self.coefficients)
+        return predictions
+
+    def plot_loss_history(self):
+        plt.plot(range(1, len(self.loss_history) + 1), self.loss_history, marker='o', linestyle='-', color='b')
+        plt.title('Training Loss over Epochs')
+        plt.xlabel('Epoch')
+        plt.ylabel('Mean Squared Error (MSE)')
+        plt.show()
+
+```
+
 
 ### Polynomial Regression
 
