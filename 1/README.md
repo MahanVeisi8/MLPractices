@@ -19,6 +19,8 @@ We implement these algorithms, evaluate their performance, and explore technique
 - [Model Evaluation and Hyperparameter Tuning](#section-b-model-evaluation-and-hyperparameter-tuning)
 - [Random Forest Implementation and Evaluation](#section-c-random-forest-implementation-and-evaluation)
 - [Gradient Boosting Implementation and Evaluation](#section-d-gradient-boosting-implementation-and-evaluation)
+
+
 ***K-Nearest Neighbors (KNN)***
 - [Data Preprocessing](#data-preprocessing)
   - [Handling Categorical Variables](#handling-categorical-variables)
