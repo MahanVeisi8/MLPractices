@@ -111,6 +111,8 @@ We implemented a Gradient Boosting classifier using scikit-learn's GradientBoost
 ![Alt Text](images/grid_search.png)
 
 
+
+# KNN
 ## Data Preprocessing
 ### Handling Categorical Variables
 We transform categorical data into one-hot encoding using the `pd.get_dummies` function.
