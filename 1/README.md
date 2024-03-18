@@ -52,8 +52,6 @@ class node:
 
 ```python
 class DecisionTree:
-    # Multiclass Decision Tree classifier
-
     def __init__(self, min_samples_split=2, max_depth=5, n_features=None ):
         """
         Initialize the Decision Tree model.
@@ -61,7 +59,7 @@ class DecisionTree:
         self.n_features = n_features
         self.max_depth=max_depth
         self.min_samples_split=min_samples_split
-        self.tree = node(None, None, None, None, None, None) # self.root=None
+        self.tree = node(None, None, None, None, None, None)
         self.number_of_classes = -1
         self.classes = None
 ```
@@ -76,6 +74,9 @@ We used the DecisionTreeClassifier from scikit-learn to create and train the mod
 
 - ***Hyperparameter Tuning:***
  To find the optimal hyperparameters, we performed a grid search over a range of values for max_depth and min_samples_leaf, using a validation set. We visualized the learning curves to understand the model's performance as the training set size increases.
+
+![Alt Text](images/max depth)
+
 
 ### Section C: Random Forest Implementation and Evaluation
 In this section, we implemented a Random Forest classifier using scikit-learn's RandomForestClassifier. We trained the Random Forest with 100 trees and evaluated its performance on a validation set.
