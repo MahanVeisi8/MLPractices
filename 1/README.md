@@ -14,6 +14,7 @@ In this practice, we explore two fundamental machine learning algorithms:
 We implement these algorithms, evaluate their performance, and explore techniques for hyperparameter tuning to improve model accuracy.
 
 ## Table of Contents
+***Decsions Tree***
 - [Decision Trees Implementation](#section-a-implementation-of-decision-trees)
 - [Model Evaluation and Hyperparameter Tuning](#section-b-model-evaluation-and-hyperparameter-tuning)
 - [Random Forest Implementation and Evaluation](#section-c-random-forest-implementation-and-evaluation)
