@@ -1,5 +1,10 @@
 # Practice Number 1 - README
 
+[![Build Status](https://travis-ci.com/username/repository.svg?branch=main)](https://travis-ci.com/username/repository)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
+
 ## Introduction
 In this practice, we explore two fundamental machine learning algorithms: 
 - **Decision Trees**
@@ -12,6 +17,7 @@ We implement these algorithms, evaluate their performance, and explore technique
 - [Model Evaluation and Hyperparameter Tuning](#section-b-model-evaluation-and-hyperparameter-tuning)
 - [Random Forest Implementation and Evaluation](#section-c-random-forest-implementation-and-evaluation)
 - [Gradient Boosting Implementation and Evaluation](#section-d-gradient-boosting-implementation-and-evaluation)
+- - [Contribution Guidelines](#contribution-guidelines)
 
 
 # Decision Trees and Random Forest Classifier
@@ -43,3 +49,7 @@ In this section, we implemented a Random Forest classifier using scikit-learn's 
 
 ### Section D: Gradient Boosting Implementation and Evaluation
 We implemented a Gradient Boosting classifier using scikit-learn's GradientBoostingClassifier. We tuned hyperparameters such as max_depth and learning_rate using GridSearchCV to find the best combination for our model. We evaluated the final model's performance on a test set and visualized the results using a confusion matrix.
+
+
+## Contribution Guidelines
+We welcome contributions from the community! If you encounter any bugs or have suggestions for improvements, please open an issue on GitHub. If you'd like to contribute code, feel free to fork the repository and submit a pull request with your changes.
