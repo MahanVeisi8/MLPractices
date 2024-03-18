@@ -221,4 +221,6 @@ from sklearn.metrics import roc_curve, auc
 ## Conclusion
 
 ![Alt Text](images/knn_ROC2.png)
+
+
 The KNN model with K=1 demonstrates the highest AUC on the validation set, indicating its superior performance in this classification task. However, the choice of K may vary depending on the specific requirements and characteristics of the dataset.
