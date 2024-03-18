@@ -46,10 +46,6 @@ We delve into preprocessing steps, model building, and evaluation techniques to 
 - Irrelevant features such as 'id' are dropped from the dataset.
 
 ### Handling Missing Values
-
-- Missing values in numerical features are imputed using the mean.
-- Categorical features are imputed using the most frequent value.
-
 ```python
 missing_values_per_feature = data.isnull().sum()
 
@@ -66,6 +62,22 @@ smoking_status    13292
 dtype: int64
 ```
 
+- Missing values in numerical features are imputed using the mean.
+```python
+from sklearn.impute import SimpleImputer
+
+numericals = ['age', 'avg_glucose_level', 'bmi', 'hypertension', 'heart_disease']
+numeric_imputer = SimpleImputer(strategy='mean')
+X[numericals] = numeric_imputer.fit_transform(X[numericals])
+scaler = StandardScaler()
+X[numericals] = scaler.fit_transform(X[numericals])
+```
+- Categorical features are imputed using the most frequent value.
+```python
+categoricals = ['gender', 'work_type', 'Residence_type', 'smoking_status']
+categorical_imputer = SimpleImputer(strategy='most_frequent')
+X[categoricals] = categorical_imputer.fit_transform(X[categoricals])
+```
 ### Encoding Categorical Variables
 
 - Categorical variables are one-hot encoded for model training.
