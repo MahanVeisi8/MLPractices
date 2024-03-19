@@ -1,4 +1,4 @@
-# README - Practice Number 2: Stroke Prediction and Insurance Cost Prediction
+# README - Practice Number 2: Stroke Prediction and Insurance Cost Prediction using SVM and linear regression
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/19gz7e82r64mSo6nlEzNGXp4zhjXDt45W?usp=sharing)
 [![Python Versions](https://img.shields.io/badge/Python-3.6%20%7C%203.7%20%7C%203.8-blue)](https://www.python.org/downloads/)
@@ -304,17 +304,26 @@ class LinearRegression:
         plt.show()
 
 ```
+![Alt Text](images/error_linear.png)
 
+![Alt Text](images/q2first_img.png)
 
 ### Polynomial Regression
 
 - Polynomial features are added to capture non-linear relationships, improving model performance.
+```python
+    def add_polynomial_features(self, X):
+        return self.poly_features.fit_transform(X)
+```
 
 ### Results and Analysis
 
 - The linear regression model provides decent accuracy in predicting insurance costs.
 - Polynomial regression outperforms the linear model, even with fewer training epochs.
+- ![Alt Text](images/error_poly.png)
+
 - Model predictions are visualized against actual insurance costs, demonstrating their effectiveness.
+![Alt Text](images/q2sec_img.png)
 
 ## Conclusion
 
