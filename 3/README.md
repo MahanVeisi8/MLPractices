@@ -12,8 +12,6 @@
   - [Training Parameters](#training-parameters)
 - [Training the Neural Network](#training-the-neural-network)
 - [Conclusion](#conclusion)
-- [License](#license)
-- [Acknowledgements](#acknowledgements)
 
 ## Introduction
 
