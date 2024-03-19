@@ -79,3 +79,5 @@ We will visualize the original datasets and the detected clusters using scatter 
 In this practice, we implemented the DBSCAN algorithm and applied it to cluster two datasets. By exploring different hyperparameter combinations, we identified the optimal parameters for each dataset and visualized the clustering results.
 
 This exercise provides practical experience in implementing and using a density-based clustering algorithm for real-world datasets.
+
+That concludes the practice! 😊✌️
