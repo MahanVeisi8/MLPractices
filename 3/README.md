@@ -1,10 +1,25 @@
 # README - Practice Number 3: Simple Neural Network Implementation and Training
 
+![License](https://img.shields.io/badge/license-MIT-green)
+![Python](https://img.shields.io/badge/python-3.7%20%7C%203.8-blue)
+![Status](https://img.shields.io/badge/status-in%20progress-yellow)
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Implementation Details](#implementation-details)
+  - [Sigmoid Activation Function](#sigmoid-activation-function)
+  - [Neural Network Parameters](#neural-network-parameters)
+  - [Training Parameters](#training-parameters)
+- [Training the Neural Network](#training-the-neural-network)
+- [Conclusion](#conclusion)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
+
 ## Introduction
 
 Welcome to Practice Number 3! In this practice, we will implement a simple neural network with a hidden layer and train it using the backpropagation algorithm. The neural network will use sigmoid activation functions and the error squared criterion function as the cost. We'll update the weights using the reduction plus momentum method.
 
-![Alt Text](images/map.png)
+![Network Architecture](images/map.png)
 
 ## Implementation Details
 
@@ -22,20 +37,7 @@ def sigmoid(x):
 
 def sigmoid_derivative(x):
     return sigmoid(x) * (1 - sigmoid(x))
-```
 
-### Neural Network Parameters
-We initialize the weights and biases of the neural network along with momentum terms:
-
-```python
-w11, w12, w21, w22, w31, w32 = 0.2, -0.3, 0.4, 0.1, -0.5, -0.2
-b1, b2 = -0.4, 0.2
-u1, u2 = -0.3, -0.2
-b3 = 0.1
-
-momentum_w11, momentum_w12, momentum_w21, momentum_w22, momentum_w31, momentum_w32 = 0, 0, 0, 0, 0, 0
-momentum_b1, momentum_b2 = 0, 0
-momentum_u1, momentum_u2, momentum_b3 = 0, 0, 0
 ```
 
 ### Training Parameters
