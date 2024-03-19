@@ -1,8 +1,8 @@
 # README - Practice Number 3: Simple Neural Network Implementation and Training
 
-![License](https://img.shields.io/badge/license-MIT-green)
-![Python](https://img.shields.io/badge/python-3.7%20%7C%203.8-blue)
-![Status](https://img.shields.io/badge/status-in%20progress-yellow)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1uw2xl7NoCt-AXFrcmO6bnhV8DhMtW49w?usp=sharing)
+![Python](https://img.shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9-blue)
+![Status](https://img.shields.io/badge/status-done-green)
 
 ## Table of Contents
 - [Introduction](#introduction)
