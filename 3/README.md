@@ -4,6 +4,8 @@
 
 Welcome to Practice Number 3! In this practice, we will implement a simple neural network with a hidden layer and train it using the backpropagation algorithm. The neural network will use sigmoid activation functions and the error squared criterion function as the cost. We'll update the weights using the reduction plus momentum method.
 
+![Alt Text](images/map.png)
+
 ## Implementation Details
 
 We'll implement the neural network in Python using NumPy for numerical computations. The network will consist of an input layer, a hidden layer, and an output layer.
