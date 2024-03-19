@@ -16,6 +16,8 @@
 
 In this practice, we will implement the DBSCAN algorithm and use it to cluster two provided datasets. First, we will draw their scatter diagrams, then apply the implemented algorithm to detect clusters and visualize them with different colors.
 
+![raw](images/raw1.png)
+
 
 ## Algorithm Overview
 
@@ -27,9 +29,37 @@ We will implement the DBSCAN algorithm using the `sklearn.cluster.DBSCAN` class.
 - Epsilon (ε): It defines the radius within which the algorithm searches for other data points to form a cluster.
 - MinPoints: It specifies the minimum number of data points required to form a dense region (cluster).
 
+
+```python
+epsilons = [0.2, 0.5, 1.0]
+min_samples_values = [3, 5, 8]
+
+plt.scatter(df1['x'], df1['y'], marker='o', s=50)
+plt.title('Original Dataset')
+plt.show()
+
+rows = len(epsilons)
+cols = len(min_samples_values)
+fig, axes = plt.subplots(rows, cols, figsize=(12, 8))
+
+for i, epsilon in enumerate(epsilons):
+    for j, min_samples in enumerate(min_samples_values):
+        dbscan = DBSCAN(eps=epsilon, min_samples=min_samples)
+        clusters = dbscan.fit_predict(df1[['x', 'y']])
+
+        ax = axes[i, j] if rows > 1 else axes[j]
+        scatter = ax.scatter(df1['x'], df1['y'], c=clusters, cmap='viridis', marker='o', s=50)
+        ax.set_title(f'Eps: {epsilon}, Min Samples: {min_samples}')
+
+plt.tight_layout()
+plt.show()
+```
+
 ## Visualization
 
 We will visualize the original datasets and the detected clusters using scatter plots. Different hyperparameter combinations will be explored to determine the best parameters for clustering each dataset.
+
+![find](images/find.png)
 
 ## Results
 
@@ -40,6 +70,9 @@ We will visualize the original datasets and the detected clusters using scatter 
 - Dataset 2:
     - Best hyperparameters: Epsilon = 0.2, Min Samples = 5
     - Clustering visualization: Scatter plot with detected clusters.
+
+![find](images/final.png)
+
 
 ## Conclusion
 
