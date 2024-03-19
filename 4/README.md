@@ -1,6 +1,21 @@
 # Practice 4: Implementing DBSCAN Algorithm and Clustering
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1khfC6_ZHTRYTqvwQHdgDw1VlAWJmHGCY?usp=sharing)
+![Python](https://img.shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9-blue)
+![Status](https://img.shields.io/badge/status-done-green)
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Algorithm Overview](#algorithm-overview)
+- [Implementation](#implementation)
+- [Visualization](#visualization)
+- [Results](#results)
+- [Conclusion](#conclusion)
+
+## Introduction
+
 In this practice, we will implement the DBSCAN algorithm and use it to cluster two provided datasets. First, we will draw their scatter diagrams, then apply the implemented algorithm to detect clusters and visualize them with different colors.
+
 
 ## Algorithm Overview
 
