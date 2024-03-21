@@ -10,7 +10,7 @@ Welcome to the machine learning practices repository! This repository contains f
 - **[Practice Number 1](1)** 
 - **Goals:** Implement and evaluate Decision Trees and K-Nearest Neighbors (KNN) algorithms. Explore hyperparameter tuning techniques and model evaluation.
 
-![DT](images/KNN.png)
+![DT](images/DT.png)
 
 ![KNN](images/KNN.png)
 
