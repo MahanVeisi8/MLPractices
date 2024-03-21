@@ -6,6 +6,13 @@
 
 Welcome to the machine learning practices repository! This repository contains four directories, each focusing on a specific machine learning practice.
 
+
+## Table of Contents
+- [Practice 1: Decision Trees and KNN](#practice-1-decision-trees-and-knn)
+- [Practice 2: Stroke Prediction and Insurance Cost Prediction](#practice-2-stroke-prediction-and-insurance-cost-prediction)
+- [Practice 3: Simple Neural Network Implementation and Training](#practice-3-simple-neural-network-implementation-and-training)
+- [Practice 4: Implementing DBSCAN Algorithm and Clustering](#practice-4-implementing-dbscan-algorithm-and-clustering)
+
 ## Practice 1: Decision Trees and KNN
 - **[Practice Number 1](1)** 
 - **Goals:** Implement and evaluate Decision Trees and K-Nearest Neighbors (KNN) algorithms. Explore hyperparameter tuning techniques and model evaluation.
