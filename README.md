@@ -1,4 +1,4 @@
-# Machine Learning Practices
+# Machine Learning Practices🤓
 
 ![Python](https://img.shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9-blue)
 ![Status](https://img.shields.io/badge/status-done-green)
@@ -40,4 +40,4 @@ Welcome to the machine learning practices repository! This repository contains f
 
 ![DBSCAN](images/DBSCAN.png)
 
-Feel free to explore each practice directory for detailed implementations, code, and results!
+Feel free to explore each practice directory for detailed implementations, code, and results!😃
