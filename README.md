@@ -3,7 +3,7 @@
 Welcome to the machine learning practices repository! This repository contains four directories, each focusing on a specific machine learning practice.
 
 ## Practice 1: Decision Trees and KNN
-- **Directory:** [MLPractices/1](MLPractices/1)
+- **Directory:** [1](1)
 - **Goals:** Implement and evaluate Decision Trees and K-Nearest Neighbors (KNN) algorithms. Explore hyperparameter tuning techniques and model evaluation.
 
 ## Practice 2: Stroke Prediction and Insurance Cost Prediction
